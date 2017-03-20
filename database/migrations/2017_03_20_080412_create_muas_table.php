@@ -18,8 +18,13 @@ class CreateMUAsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('email');
-            $table->string('logo');
-            $table->string('about');
+            $table->string('logo')->nullable();
+            $table->string('about')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('bbm')->nullable();
+            $table->string('line')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->timestamps();
             $table->unique(array('slug', 'email'));
         });
