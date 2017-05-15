@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\MUA;
 use App\Http\Requests\MUA as MUARequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class MUAController extends Controller
 {
@@ -35,6 +37,9 @@ class MUAController extends Controller
         $mua->slug = \Str::slug($request->get('name'));
         $mua->email = $request->get('email');
         $mua->save();
+
+        $fileName = str_pad($mua->id, 3, '0', STR_PAD_LEFT) . '-' . $mua->slug;
+        File::put($fileName.'.json', json_encode($mua));
 
         return response()->json([], 201);
     }
