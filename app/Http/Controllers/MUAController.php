@@ -39,7 +39,7 @@ class MUAController extends Controller
         $mua->save();
 
         $fileName = str_pad($mua->id, 3, '0', STR_PAD_LEFT) . '-' . $mua->slug;
-        File::put($fileName.'.json', json_encode($mua));
+        File::put('json/'.$fileName.'.json', json_encode($mua));
 
         return response()->json([], 201);
     }
