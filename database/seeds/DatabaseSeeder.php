@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Willy Nugraha',
             'email' => 'willymiiee@gmail.com',
             'password' => bcrypt('sayajancukbanget'),
+            'is_confirmed' => true
         ]);
     }
 }

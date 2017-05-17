@@ -20,8 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('avatar')->nullable();
+            $table->integer('m_u_a_id')->nullable();
+            $table->string('activation_code')->nullable();
+            $table->boolean('is_confirmed')->default(false);
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps();            
             $table->integer('invited_by')->nullable();
             $table->unique(array('username', 'email'));
         });
