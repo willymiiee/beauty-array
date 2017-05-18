@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'name', 'email', 'password', 'avatar', 'mua_id'
+        'username', 'name', 'email', 'password', 'avatar'
     ];
 
     /**
@@ -30,5 +30,10 @@ class User extends Authenticatable
     public function MUA()
     {
         return $this->belongsTo('App\Models\MUA');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
     }
 }

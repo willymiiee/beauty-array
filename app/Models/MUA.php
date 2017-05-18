@@ -16,4 +16,9 @@ class MUA extends Model
     {
         return $this->hasMany('App\Models\User');
     }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
 }
